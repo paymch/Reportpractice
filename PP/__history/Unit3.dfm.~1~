@@ -1,0 +1,550 @@
+object DM: TDM
+  OldCreateOrder = False
+  Left = 305
+  Top = 72
+  Height = 307
+  Width = 1023
+  object ADOConnection1: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=Microsoft.ACE.OLEDB.16.0;Data Source=J:\DIPLOM\BD.accdb' +
+      ';Persist Security Info=False'
+    LoginPrompt = False
+    Mode = cmShareDenyNone
+    Provider = 'Microsoft.ACE.OLEDB.16.0'
+    Left = 40
+    Top = 80
+  end
+  object tblVid_polzov: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = #1042#1080#1076'_'#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+    Left = 208
+    Top = 40
+    object tblVid_polzovID__: TBooleanField
+      FieldName = 'ID_'#1074#1080#1076'_'#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+    end
+    object tblVid_polzovDSDesigner: TWideStringField
+      FieldName = #1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1100
+      Size = 255
+    end
+  end
+  object dsvid_polzov: TDataSource
+    DataSet = tblVid_polzov
+    Left = 208
+    Top = 128
+  end
+  object dspolzovatel: TDataSource
+    DataSet = tblpolzovatel
+    Left = 128
+    Top = 128
+  end
+  object tblpolzovatel: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = #1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1100
+    Left = 128
+    Top = 40
+    object tblpolzovatelID_: TAutoIncField
+      FieldName = 'ID_'#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1100
+      ReadOnly = True
+      Visible = False
+    end
+    object tblpolzovatelDSDesigner: TWideStringField
+      DisplayWidth = 25
+      FieldName = #1060#1072#1084#1080#1083#1080#1103
+      Size = 255
+    end
+    object tblpolzovatelDSDesigner2: TWideStringField
+      DisplayWidth = 21
+      FieldName = #1048#1084#1103
+      Size = 255
+    end
+    object tblpolzovatelDSDesigner3: TWideStringField
+      DisplayWidth = 24
+      FieldName = #1054#1090#1095#1077#1089#1090#1074#1086
+      Size = 255
+    end
+    object tblpolzovatelid_2: TIntegerField
+      FieldName = 'id_'#1075#1088#1091#1087#1087#1072
+      Visible = False
+    end
+    object tblpolzovatelField: TStringField
+      DisplayWidth = 15
+      FieldKind = fkLookup
+      FieldName = #1043#1088#1091#1087#1087#1072
+      LookupDataSet = tblgruppa
+      LookupKeyFields = 'ID_'#1075#1088#1091#1087#1087#1072
+      LookupResultField = #1043#1088#1091#1087#1087#1072
+      KeyFields = 'id_'#1075#1088#1091#1087#1087#1072
+      Lookup = True
+    end
+    object tblpolzovatellogin: TWideStringField
+      DisplayWidth = 18
+      FieldName = 'login'
+      Size = 255
+    end
+    object tblpolzovatelpassword: TWideStringField
+      DisplayWidth = 22
+      FieldName = 'password'
+      Size = 255
+    end
+    object tblpolzovatelid__: TBooleanField
+      FieldName = 'id_'#1074#1080#1076'_'#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+      Visible = False
+    end
+    object tblpolzovatelField2: TStringField
+      DisplayWidth = 24
+      FieldKind = fkLookup
+      FieldName = #1042#1080#1076' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+      LookupDataSet = tblVid_polzov
+      LookupKeyFields = 'ID_'#1074#1080#1076'_'#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+      LookupResultField = #1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1100
+      KeyFields = 'id_'#1074#1080#1076'_'#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+      Lookup = True
+    end
+  end
+  object tblgruppa: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = #1043#1088#1091#1087#1087#1072
+    Left = 272
+    Top = 40
+    object tblgruppaID_: TAutoIncField
+      FieldName = 'ID_'#1075#1088#1091#1087#1087#1072
+      ReadOnly = True
+      Visible = False
+    end
+    object tblgruppaDSDesigner: TWideStringField
+      DisplayWidth = 52
+      FieldName = #1043#1088#1091#1087#1087#1072
+      Size = 255
+    end
+  end
+  object dsgruppa: TDataSource
+    DataSet = tblgruppa
+    Left = 272
+    Top = 128
+  end
+  object dspopitka: TDataSource
+    DataSet = tblpopitka
+    Left = 336
+    Top = 128
+  end
+  object tblpopitka: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = #1055#1086#1087#1099#1090#1082#1072
+    Left = 336
+    Top = 40
+    object tblpopitkaID_: TAutoIncField
+      FieldName = 'ID_'#1087#1086#1087#1099#1090#1082#1080
+      ReadOnly = True
+    end
+    object tblpopitkaid_2: TIntegerField
+      FieldName = 'id_'#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+    end
+    object tblpopitkaid_3: TIntegerField
+      FieldName = 'id_'#1090#1077#1084#1099
+    end
+    object tblpopitkaDSDesigner: TDateTimeField
+      FieldName = #1044#1072#1090#1072
+    end
+    object tblpopitkaDSDesigner2: TWideStringField
+      FieldName = #1054#1094#1077#1085#1082#1072
+      Size = 255
+    end
+  end
+  object tbltema: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    IndexFieldNames = 'ID_'#1090#1077#1084#1072
+    TableName = #1058#1077#1084#1072
+    Left = 408
+    Top = 40
+    object tbltemaID_: TAutoIncField
+      DisplayWidth = 12
+      FieldName = 'ID_'#1090#1077#1084#1072
+      ReadOnly = True
+      Visible = False
+    end
+    object tbltemaDSDesigner: TWideStringField
+      DisplayWidth = 69
+      FieldName = #1058#1077#1084#1072
+      Size = 255
+    end
+  end
+  object dstema: TDataSource
+    DataSet = tbltema
+    Left = 408
+    Top = 128
+  end
+  object dsvopros: TDataSource
+    DataSet = tblvopros
+    Left = 480
+    Top = 128
+  end
+  object tblvopros: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    IndexFieldNames = 'id_'#1090#1077#1084#1099
+    TableName = #1042#1086#1087#1088#1086#1089
+    Left = 480
+    Top = 40
+    object tblvoprosID_: TAutoIncField
+      FieldName = 'ID_'#1074#1086#1087#1088#1086#1089
+      ReadOnly = True
+      Visible = False
+    end
+    object tblvoprosDSDesigner: TWideStringField
+      DisplayWidth = 116
+      FieldName = #1042#1086#1087#1088#1086#1089
+      Size = 255
+    end
+    object tblvoprosDSDesigner2: TBlobField
+      DisplayWidth = 14
+      FieldName = #1048#1079#1086#1073#1088#1072#1078#1077#1085#1080#1077
+      Visible = False
+    end
+    object tblvoprosid_2: TIntegerField
+      FieldName = 'id_'#1090#1077#1084#1099
+      Visible = False
+    end
+    object tblvoprosField: TStringField
+      DisplayWidth = 32
+      FieldKind = fkLookup
+      FieldName = #1058#1077#1084#1072
+      LookupDataSet = tbltema
+      LookupKeyFields = 'ID_'#1090#1077#1084#1072
+      LookupResultField = #1058#1077#1084#1072
+      KeyFields = 'id_'#1090#1077#1084#1099
+      Lookup = True
+    end
+  end
+  object tblrezultat: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = #1056#1077#1079#1091#1083#1100#1090#1072#1090
+    Left = 544
+    Top = 40
+    object tblrezultatID_: TAutoIncField
+      FieldName = 'ID_'#1088#1077#1079#1091#1083#1100#1090#1072#1090
+      ReadOnly = True
+      Visible = False
+    end
+    object tblrezultatid_2: TIntegerField
+      FieldName = 'id_'#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+      Visible = False
+    end
+    object tblrezultatField: TStringField
+      DisplayWidth = 16
+      FieldKind = fkLookup
+      FieldName = #1060#1072#1084#1080#1083#1080#1103
+      LookupDataSet = tblpolzovatel
+      LookupKeyFields = 'ID_'#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1100
+      LookupResultField = #1060#1072#1084#1080#1083#1080#1103
+      KeyFields = 'id_'#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+      Lookup = True
+    end
+    object tblrezultatField2: TStringField
+      DisplayWidth = 13
+      FieldKind = fkLookup
+      FieldName = #1048#1084#1103
+      LookupDataSet = tblpolzovatel
+      LookupKeyFields = 'ID_'#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1100
+      LookupResultField = #1048#1084#1103
+      KeyFields = 'id_'#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+      Lookup = True
+    end
+    object tblrezultatField4: TStringField
+      DisplayWidth = 10
+      FieldKind = fkLookup
+      FieldName = #1043#1088#1091#1087#1087#1072
+      LookupDataSet = tblgruppa
+      LookupKeyFields = 'ID_'#1075#1088#1091#1087#1087#1072
+      LookupResultField = #1043#1088#1091#1087#1087#1072
+      KeyFields = 'id_'#1075#1088#1091#1087#1087#1099
+      Lookup = True
+    end
+    object tblrezultatid_3: TIntegerField
+      FieldName = 'id_'#1090#1077#1084#1099
+      Visible = False
+    end
+    object tblrezultatField3: TStringField
+      DisplayWidth = 29
+      FieldKind = fkLookup
+      FieldName = #1058#1077#1084#1072
+      LookupDataSet = tbltema
+      LookupKeyFields = 'ID_'#1090#1077#1084#1072
+      LookupResultField = #1058#1077#1084#1072
+      KeyFields = 'id_'#1090#1077#1084#1099
+      Lookup = True
+    end
+    object tblrezultatid_4: TIntegerField
+      FieldName = 'id_'#1075#1088#1091#1087#1087#1099
+      Visible = False
+    end
+    object tblrezultatDSDesigner2: TWideStringField
+      DisplayWidth = 10
+      FieldName = #1054#1094#1077#1085#1082#1072
+      Size = 255
+    end
+    object tblrezultatDSDesigner: TDateTimeField
+      FieldName = #1044#1072#1090#1072
+    end
+  end
+  object dsrezultat: TDataSource
+    DataSet = tblrezultat
+    Left = 544
+    Top = 128
+  end
+  object dsotveti: TDataSource
+    DataSet = tbloteveti
+    Left = 616
+    Top = 128
+  end
+  object tbloteveti: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    IndexFieldNames = 'id_'#1074#1086#1087#1088#1086#1089
+    MasterFields = 'ID_'#1074#1086#1087#1088#1086#1089
+    MasterSource = dsvopros
+    TableName = #1054#1090#1074#1077#1090#1099
+    Left = 616
+    Top = 40
+    object tblotevetiID_: TAutoIncField
+      FieldName = 'ID_'#1086#1090#1074#1077#1090#1099
+      ReadOnly = True
+      Visible = False
+    end
+    object tblotevetiid_2: TIntegerField
+      FieldName = 'id_'#1074#1086#1087#1088#1086#1089
+      Visible = False
+    end
+    object tblotevetiDSDesigner: TWideStringField
+      DisplayWidth = 66
+      FieldName = #1054#1090#1074#1077#1090
+      Size = 255
+    end
+    object tblotevetiid__: TBooleanField
+      DisplayLabel = #1057#1090#1072#1090#1091#1089' '#1086#1090#1074#1077#1090#1072
+      DisplayWidth = 63
+      FieldName = 'id_'#1089#1090#1072#1090#1091#1089'_'#1086#1090#1074#1077#1090#1072
+      Visible = False
+      DisplayValues = #1042#1077#1088#1085#1086';'#1053#1077#1074#1077#1088#1085#1086#13#10
+    end
+    object tblotevetiField: TStringField
+      DisplayWidth = 51
+      FieldKind = fkLookup
+      FieldName = #1057#1090#1072#1090#1091#1089' '#1086#1090#1074#1077#1090#1072
+      LookupDataSet = tblstatus_otv
+      LookupKeyFields = 'ID_'#1089#1090#1072#1090#1091#1089'_'#1086#1090#1074#1077#1090#1072
+      LookupResultField = #1054#1090#1074#1077#1090
+      KeyFields = 'id_'#1089#1090#1072#1090#1091#1089'_'#1086#1090#1074#1077#1090#1072
+      Lookup = True
+    end
+  end
+  object tblstatus_otv: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = #1057#1090#1072#1090#1091#1089'_'#1086#1090#1074#1077#1090#1072
+    Left = 680
+    Top = 40
+    object tblstatus_otvID__: TBooleanField
+      FieldName = 'ID_'#1089#1090#1072#1090#1091#1089'_'#1086#1090#1074#1077#1090#1072
+    end
+    object tblstatus_otvDSDesigner: TWideStringField
+      FieldName = #1054#1090#1074#1077#1090
+      Size = 255
+    end
+  end
+  object dsctatus_otv: TDataSource
+    DataSet = tblstatus_otv
+    Left = 680
+    Top = 128
+  end
+  object tblKontrol: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = #1050#1086#1085#1090#1088#1086#1083#1100
+    Left = 752
+    Top = 40
+    object tblKontrolID_: TAutoIncField
+      FieldName = 'ID_'#1089#1086#1073#1099#1090#1080#1103
+      ReadOnly = True
+      Visible = False
+    end
+    object tblKontrolid__: TIntegerField
+      FieldName = 'id_'#1074#1080#1076'_'#1082#1086#1085#1090#1088#1086#1083#1103
+      Visible = False
+    end
+    object tblKontrolid_2: TIntegerField
+      FieldName = 'id_'#1090#1077#1084#1099
+      Visible = False
+    end
+    object tblKontrolField: TStringField
+      DisplayLabel = #1057#1086#1073#1099#1090#1080#1077
+      DisplayWidth = 24
+      FieldKind = fkLookup
+      FieldName = #1042#1080#1076' '#1082#1086#1085#1090#1088#1086#1083#1103
+      LookupDataSet = tblvid_Kontrol
+      LookupKeyFields = 'ID_'#1074#1080#1076'_'#1082#1086#1085#1090#1088#1086#1083#1103
+      LookupResultField = #1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077
+      KeyFields = 'id_'#1074#1080#1076'_'#1082#1086#1085#1090#1088#1086#1083#1103
+      Lookup = True
+    end
+    object tblKontrolField2: TStringField
+      DisplayWidth = 39
+      FieldKind = fkLookup
+      FieldName = #1058#1077#1084#1072
+      LookupDataSet = tbltema
+      LookupKeyFields = 'ID_'#1090#1077#1084#1072
+      LookupResultField = #1058#1077#1084#1072
+      KeyFields = 'id_'#1090#1077#1084#1099
+      Lookup = True
+    end
+    object tblKontrolDSDesigner: TDateTimeField
+      DisplayLabel = #1044#1072#1090#1072' '#1087#1088#1086#1074#1077#1076#1077#1085#1080#1103
+      DisplayWidth = 22
+      FieldName = #1044#1072#1090#1072
+    end
+  end
+  object DSKontrol: TDataSource
+    DataSet = tblKontrol
+    Left = 752
+    Top = 128
+  end
+  object DSvid_Kontrol: TDataSource
+    DataSet = tblvid_Kontrol
+    Left = 816
+    Top = 128
+  end
+  object tblvid_Kontrol: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = #1042#1080#1076'_'#1082#1086#1085#1090#1088#1086#1083#1103
+    Left = 816
+    Top = 40
+    object tblvid_KontrolID__: TAutoIncField
+      FieldName = 'ID_'#1074#1080#1076'_'#1082#1086#1085#1090#1088#1086#1083#1103
+      ReadOnly = True
+      Visible = False
+    end
+    object tblvid_KontrolDSDesigner: TWideStringField
+      DisplayWidth = 49
+      FieldName = #1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077
+      Size = 30
+    end
+  end
+  object qry_tema: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    DataSource = dsvopros
+    Parameters = <>
+    SQL.Strings = (
+      ''
+      'SELECT '#1058#1077#1084#1072'.ID_'#1090#1077#1084#1072', '#1042#1086#1087#1088#1086#1089'.'#1042#1086#1087#1088#1086#1089
+      'FROM '#1058#1077#1084#1072' INNER JOIN '#1042#1086#1087#1088#1086#1089' ON '#1058#1077#1084#1072'.ID_'#1090#1077#1084#1072' = '#1042#1086#1087#1088#1086#1089'.id_'#1090#1077#1084#1099';'
+      ''
+      '')
+    Left = 120
+    Top = 200
+  end
+  object qry_verno: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    DataSource = dsotveti
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT '#1054#1090#1074#1077#1090#1099'.'#1054#1090#1074#1077#1090', '#1057#1090#1072#1090#1091#1089'_'#1086#1090#1074#1077#1090#1072'.'#1054#1090#1074#1077#1090
+      
+        'FROM '#1057#1090#1072#1090#1091#1089'_'#1086#1090#1074#1077#1090#1072' INNER JOIN '#1054#1090#1074#1077#1090#1099' ON '#1057#1090#1072#1090#1091#1089'_'#1086#1090#1074#1077#1090#1072'.ID_'#1089#1090#1072#1090#1091#1089'_' +
+        #1086#1090#1074#1077#1090#1072' = '#1054#1090#1074#1077#1090#1099'.id_'#1089#1090#1072#1090#1091#1089'_'#1086#1090#1074#1077#1090#1072
+      'WHERE ((('#1057#1090#1072#1090#1091#1089'_'#1086#1090#1074#1077#1090#1072'.'#1054#1090#1074#1077#1090')="'#1042#1077#1088#1085#1099#1081'"));')
+    Left = 176
+    Top = 200
+    object qry_vernoDSDesigner: TWideStringField
+      FieldName = #1054#1090#1074#1077#1090#1099'.'#1054#1090#1074#1077#1090
+      Size = 255
+    end
+    object qry_verno_: TWideStringField
+      FieldName = #1057#1090#1072#1090#1091#1089'_'#1086#1090#1074#1077#1090#1072'.'#1054#1090#1074#1077#1090
+      Size = 255
+    end
+  end
+  object z_stud: TADOQuery
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      
+        'SELECT '#1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1100'.'#1060#1072#1084#1080#1083#1080#1103', '#1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1100'.'#1048#1084#1103', '#1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1100'.'#1054#1090#1095#1077 +
+        #1089#1090#1074#1086', '#1043#1088#1091#1087#1087#1072'.ID_'#1075#1088#1091#1087#1087#1072', '#1043#1088#1091#1087#1087#1072'.'#1043#1088#1091#1087#1087#1072', '#1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1100'.login, '#1055#1086#1083#1100#1079 +
+        #1086#1074#1072#1090#1077#1083#1100'.password, '#1042#1080#1076'_'#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103'.'#1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1100
+      
+        'FROM '#1042#1080#1076'_'#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103' INNER JOIN ('#1043#1088#1091#1087#1087#1072' INNER JOIN '#1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1100 +
+        ' ON '#1043#1088#1091#1087#1087#1072'.ID_'#1075#1088#1091#1087#1087#1072' = '#1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1100'.id_'#1075#1088#1091#1087#1087#1072') ON '#1042#1080#1076'_'#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077 +
+        #1083#1103'.ID_'#1074#1080#1076'_'#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103' = '#1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1100'.id_'#1074#1080#1076'_'#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+      'WHERE ((('#1042#1080#1076'_'#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103'.'#1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1100')="'#1057#1090#1091#1076#1077#1085#1090'"));')
+    Left = 304
+    Top = 200
+    object z_studDSDesigner: TWideStringField
+      DisplayWidth = 19
+      FieldName = #1060#1072#1084#1080#1083#1080#1103
+      Size = 255
+    end
+    object z_studDSDesigner2: TWideStringField
+      DisplayWidth = 18
+      FieldName = #1048#1084#1103
+      Size = 255
+    end
+    object z_studDSDesigner3: TWideStringField
+      DisplayWidth = 18
+      FieldName = #1054#1090#1095#1077#1089#1090#1074#1086
+      Size = 255
+    end
+    object z_studDSDesigner4: TWideStringField
+      DisplayWidth = 13
+      FieldName = #1043#1088#1091#1087#1087#1072
+      Size = 255
+    end
+    object z_studlogin: TWideStringField
+      DisplayWidth = 15
+      FieldName = 'login'
+      Size = 255
+    end
+    object z_studpassword: TWideStringField
+      DisplayWidth = 17
+      FieldName = 'password'
+      Size = 255
+    end
+    object z_studDSDesigner5: TWideStringField
+      DisplayWidth = 15
+      FieldName = #1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1100
+      Size = 255
+    end
+    object z_studID_: TAutoIncField
+      FieldName = 'ID_'#1075#1088#1091#1087#1087#1072
+      ReadOnly = True
+      Visible = False
+    end
+  end
+  object ds_stud: TDataSource
+    DataSet = z_stud
+    Left = 376
+    Top = 200
+  end
+end

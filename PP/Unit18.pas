@@ -1,0 +1,200 @@
+unit Unit18;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, jpeg, ExtCtrls, Buttons;
+
+type
+  TCalc = class(TForm)
+    Image1: TImage;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Edit4: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    ComboBox1: TComboBox;
+    BitBtn1: TBitBtn;
+    Edit5: TEdit;
+    Label8: TLabel;
+    Label9: TLabel;
+    Edit6: TEdit;
+    Label10: TLabel;
+    Label11: TLabel;
+    Edit7: TEdit;
+    Edit8: TEdit;
+    BitBtn2: TBitBtn;
+    Label12: TLabel;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+    TComplex=record
+    Real: Extended;//Вещественная часть комплексного числа
+    Imag: Extended;//Мнимая часть комплексного числа
+    Modul: Extended;//модуль комплексного числа
+    Angle: Extended;//угол поворота
+  end;
+var
+  Calc: TCalc;
+  Z1,Z2: TComplex;
+
+implementation
+
+{$R *.dfm}
+
+
+procedure TCalc.BitBtn1Click(Sender: TObject);
+var
+  Real,Imag,Modul,Angle:extended;
+begin
+  if Edit1.Text<>'' then Z1.Real:=StrToFloat(Edit1.Text);
+  if Edit2.Text<>'' then Z1.Imag:=StrToFloat(Edit2.Text);
+  if Edit3.Text<>'' then Z2.Real:=StrToFloat(Edit3.Text);
+  if Edit4.Text<>'' then Z2.Imag:=StrToFloat(Edit4.Text);
+
+    if (Edit1.Text<>'') and (Edit2.Text<>'') then
+      begin
+        Z1.Modul:=SQRT(SQR(Z1.Real)+SQR(Z1.Imag));
+        if Z1.Real=0 then Z1.Angle:=1.57
+            else Z1.Angle:=3.14+arctan(Z1.Imag/Z1.Real);
+      end;
+
+    if (Edit3.Text<>'') and (Edit4.Text<>'') then
+      begin
+       Z2.Modul:=SQRT(SQR(Z2.Real)+SQR(Z2.Imag));
+       if Z2.Real=0 then Z2.Angle:=1.57
+          else Z2.Angle:=3.14+arctan(Z2.Imag/Z2.Real);
+
+    end;
+
+{Z1+Z2}
+
+  If Z1.Imag>=0 then Edit5.Text:=floatToStrF(Z1.Real,ffFixed,0,0)+'+j'+floatToStrF(Z1.Imag,ffFixed,0,0)
+    else  Edit5.Text:=floatToStrF(Z1.Real,ffFixed,0,1)+'-j'+floatToStrF(-Z1.Imag,ffFixed,0,1);
+  If Z2.Real>=0 then Edit5.Text:=Edit5.Text+'+'+floatToStrF(Z2.Real,ffFixed,0,0)
+    else Edit5.Text:=Edit5.Text+floatToStrF(Z2.Real,ffFixed,0,0);
+  If Z2.Imag>=0 then Edit5.Text:=Edit5.Text+'+j'+floatToStrF(Z2.Imag,ffFixed,0,0)
+    else  Edit5.Text:=Edit5.Text+'-j'+floatToStrF(-Z2.Imag,ffFixed,0,0);
+  Edit5.Text:=Edit5.Text+'='+floatToStrF(Z1.Real+Z2.Real,ffFixed,0,0);
+  If (Z1.Imag+Z2.Imag)>=0 then Edit5.Text:=Edit5.Text+'+j'+floatToStrF(Z1.Imag+Z2.Imag,ffFixed,0,0)
+    else  Edit5.Text:=Edit5.Text+'-j'+floatToStrF(-(Z1.Imag+Z2.Imag),ffFixed,0,0);
+  modul:=SQRT(SQR(Z1.Real+Z2.Real)+SQR(Z1.Imag+Z2.Imag));
+  if (Z1.Real+Z2.Real)=0 then Angle:=1.57
+    else if (Z1.Real+Z2.Real)>0 then Angle:=arctan((Z1.Imag+Z2.Imag)/(Z1.Real+Z2.Real))
+          else Angle:=3.14+arctan((Z1.Imag+Z2.Imag)/(Z1.Real+Z2.Real));
+
+{Z1-Z2}
+
+  If Z1.Imag>=0 then Edit6.Text:=floatToStrF(Z1.Real,ffFixed,0,0)+'+j'+floatToStrF(Z1.Imag,ffFixed,0,0)
+    else  Edit6.Text:=floatToStrF(Z1.Real,ffFixed,0,1)+'-j'+floatToStrF(-Z1.Imag,ffFixed,0,1);
+  If (-Z2.Real) >=0 then Edit6.Text:=Edit6.Text+'+'+floatToStrF(-Z2.Real,ffFixed,0,0)
+    else Edit6.Text:=Edit6.Text+floatToStrF(-Z2.Real,ffFixed,0,0);
+  If (-Z2.Imag)>=0 then Edit6.Text:=Edit6.Text+'+j'+floatToStrF(Z2.Imag,ffFixed,0,0)
+    else  Edit6.Text:=Edit6.Text+'-j'+floatToStrF(Z2.Imag,ffFixed,0,0);
+  Edit6.Text:=Edit6.Text+'='+floatToStrF(Z1.Real-Z2.Real,ffFixed,0,0);
+  If (Z1.Imag-Z2.Imag)>=0 then Edit6.Text:=Edit6.Text+'+j'+floatToStrF(Z1.Imag-Z2.Imag,ffFixed,0,0)
+    else  Edit6.Text:=Edit6.Text+'-j'+floatToStrF(-(Z1.Imag-Z2.Imag),ffFixed,0,0);
+  modul:=SQRT(SQR(Z1.Real-Z2.Real)+SQR(Z1.Imag-Z2.Imag));
+  if (Z1.Real-Z2.Real)=0 then Angle:=1.57
+    else if (Z1.Real-Z2.Real)>0 then Angle:=arctan((Z1.Imag-Z2.Imag)/(Z1.Real-Z2.Real))
+          else Angle:=3.14+arctan((Z1.Imag-Z2.Imag)/(Z1.Real-Z2.Real));
+
+{Z1*Z2}
+
+  Edit7.Text:=floatToStrF(Z1.Modul,ffFixed,0,0)+'exp('+floatToStrF(Z1.Angle,ffFixed,0,0)+
+    'j)*'+floatToStrF(Z2.Modul,ffFixed,0,0)+'exp('+floatToStrF(Z2.Angle,ffFixed,0,0)+'j)='+
+    floatToStrF(Z1.Modul*Z2.Modul,ffFixed,0,0)+'exp('+floatToStrF(Z1.Angle+Z2.Angle,ffFixed,0,0)+'j)='+
+    floatToStrF(Z1.Modul*Z2.Modul*cos(Z1.Angle+Z2.Angle),ffFixed,0,0);
+  if sin(Z1.Angle+Z2.Angle)>=0 then Edit7.Text:=Edit7.Text+'+j'+floatToStrF(Z1.Modul*Z2.Modul*sin(Z1.Angle+Z2.Angle),ffFixed,0,0)
+    else Edit7.Text:=Edit7.Text+'-j'+floatToStrF(-Z1.Modul*Z2.Modul*sin(Z1.Angle+Z2.Angle),ffFixed,0,0);
+
+{Z1/Z2}
+
+  Edit8.Text:=floatToStrF(Z1.Modul,ffFixed,0,0)+'exp('+floatToStrF(Z1.Angle,ffFixed,0,0)+
+    'j)/'+floatToStrF(Z2.Modul,ffFixed,0,0)+'exp('+floatToStrF(Z2.Angle,ffFixed,0,0)+'j)='+
+    floatToStrF(Z1.Modul/Z2.Modul,ffFixed,0,0)+'exp('+floatToStrF(Z1.Angle-Z2.Angle,ffFixed,0,0)+'j)='+
+    floatToStrF(Z1.Modul/Z2.Modul*cos(Z1.Angle-Z2.Angle),ffFixed,0,0);
+  if sin(Z1.Angle-Z2.Angle)>=0 then Edit8.Text:=Edit8.Text+'+j'+floatToStrF(Z1.Modul/Z2.Modul*sin(Z1.Angle-Z2.Angle),ffFixed,0,0)
+    else Edit8.Text:=Edit8.Text+'-j'+floatToStrF(-Z1.Modul/Z2.Modul*sin(Z1.Angle-Z2.Angle),ffFixed,0,0);
+
+end;
+
+procedure TCalc.ComboBox1Change(Sender: TObject);
+  begin
+  case combobox1.ItemIndex of 0:
+    begin
+
+    label8.Visible:=True ;
+    Edit5.Visible:=True;
+    label9.Visible:=false ;
+    Edit6.Visible:=false;
+    label10.Visible:=false ;
+    Edit7.Visible:=false;
+    label11.Visible:=false ;
+    Edit8.Visible:=false;
+    end;
+  end;
+    case combobox1.ItemIndex of 1:
+    begin
+    Label3.Caption:='-';
+    Label4.Caption:='-';
+    label9.Visible:=True ;
+    Edit6.Visible:=True;
+    label8.Visible:=false ;
+    Edit5.Visible:=false;
+    label10.Visible:=false ;
+    Edit7.Visible:=false;
+    label11.Visible:=false ;
+    Edit8.Visible:=false;
+    end;
+  end;
+    case combobox1.ItemIndex of 2:
+  begin
+    Label3.Caption:='*';
+    Label4.Caption:='*';
+    label10.Visible:=True ;
+    Edit7.Visible:=True;
+    label8.Visible:=false ;
+    Edit5.Visible:=false;
+    label9.Visible:=false ;
+    Edit6.Visible:=false;
+    label11.Visible:=false ;
+    Edit8.Visible:=false;
+  end;
+  end;
+    case combobox1.ItemIndex of 3:
+  begin
+    Label3.Caption:='/';
+    Label4.Caption:='/';
+    label11.Visible:=True ;
+    Edit8.Visible:=True;
+    label8.Visible:=false ;
+    Edit5.Visible:=false;
+    label9.Visible:=false ;
+    Edit6.Visible:=false;
+    label10.Visible:=false ;
+    Edit7.Visible:=false;
+  end;
+  end;
+
+end;
+
+procedure TCalc.BitBtn2Click(Sender: TObject);
+begin
+Calc.Close;
+end;
+
+end.
